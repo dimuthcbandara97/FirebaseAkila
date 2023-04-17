@@ -83,6 +83,59 @@ api.post('/recordTemp', (req, res) => {
     )
 });
 
+api.post('/recordGPS', (req, res) => {
+    const sensorReading = req.query.temp || 0;
+    const id = req.query.ID
+    const data = {
+        Reading : sensorReading,
+        SensorID : id,
+        createdAt : new Date()
+    }
+    addDataToCollection(database, "GPSData", data).then(
+        value => {res.send("Done");}
+    ).catch(
+        err => {
+            res.send("Error writing to DB, Please check the API log for more details");
+            console.log(err);
+        }
+    )
+});
+
+api.post('/recordAcceleration', (req, res) => {
+    const sensorReading = req.query.temp || 0;
+    const id = req.query.ID
+    const data = {
+        Reading : sensorReading,
+        SensorID : id,
+        createdAt : new Date()
+    }
+    addDataToCollection(database, "AccelerationData", data).then(
+        value => {res.send("Done");}
+    ).catch(
+        err => {
+            res.send("Error writing to DB, Please check the API log for more details");
+            console.log(err);
+        }
+    )
+});
+
+api.post('/recordMagnitude', (req, res) => {
+    const sensorReading = req.query.temp || 0;
+    const id = req.query.ID
+    const data = {
+        Reading : sensorReading,
+        SensorID : id,
+        createdAt : new Date()
+    }
+    addDataToCollection(database, "MagnitudeData", data).then(
+        value => {res.send("Done");}
+    ).catch(
+        err => {
+            res.send("Error writing to DB, Please check the API log for more details");
+            console.log(err);
+        }
+    )
+});
 //Deploying the listener
 const port = process.env.PORT || 3000;
 api.listen(port, () => console.log(`Express server listening on port
