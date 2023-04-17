@@ -84,7 +84,7 @@ api.post('/recordTemp', (req, res) => {
 });
 
 api.post('/recordGPS', (req, res) => {
-    const sensorReading = req.query.temp || 0;
+    const sensorReading = req.query.gps || 0;
     const id = req.query.ID
     const data = {
         Reading : sensorReading,
@@ -102,7 +102,7 @@ api.post('/recordGPS', (req, res) => {
 });
 
 api.post('/recordAcceleration', (req, res) => {
-    const sensorReading = req.query.temp || 0;
+    const sensorReading = req.query.accl || 0;
     const id = req.query.ID
     const data = {
         Reading : sensorReading,
@@ -120,7 +120,7 @@ api.post('/recordAcceleration', (req, res) => {
 });
 
 api.post('/recordMagnitude', (req, res) => {
-    const sensorReading = req.query.temp || 0;
+    const sensorReading = req.query.mag || 0;
     const id = req.query.ID
     const data = {
         Reading : sensorReading,
