@@ -39,7 +39,7 @@ const setLocation = async(req,res) =>  {
         "course": course
     }
 
-    await setDoc(doc(firestore,collectionName,trackerId),data)
+    await setDoc(doc(firestore,collectionName,sensorId),data)
 
 
     res.send(JSON.stringify(data))
