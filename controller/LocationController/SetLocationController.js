@@ -25,14 +25,14 @@ const collectionName  = "LocationData"
 
 
 const setLocation = async(req,res) =>  {
-    const trackerId =  req.query.trackerId;
+    const sensorId =  req.query.sensorId;
     const longitude = req.query.longitude;
     const latitude = req.query.latitude;
     const speed = req.query.speed;
     const course = req.query.course;
 
     const data = {
-        "sensorId" : trackerId,
+        "sensorId" : sensorId,
         "longitude" : longitude,
         "latitude" : latitude,
         "speed": speed,
