@@ -10,7 +10,7 @@ const env =dotenv.config();
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 
-app.use('/recordGPS',locationRouter);
+app.use('/',locationRouter);
 
 const port = process.env['PORT'] || 3000
 app.listen(port)
