@@ -31,8 +31,12 @@ const setLocation = async(req,res) =>  {
     const speed = req.query.speed;
     const course = req.query.course;
 
+
+    const today = new Date();
+    const dateString = today.toDateString();
+    console.log(dateString);
     const data = {
-        "sensorId" : sensorId,
+        "sensorId" : sensorId + dateString,
         "longitude" : longitude,
         "latitude" : latitude,
         "speed": speed,
