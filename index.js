@@ -84,15 +84,15 @@ api.post('/recordTemp', (req, res) => {
 });
 
 api.post('/recordGPS', (req, res) => {
-    const sensorReadingLattitude = req.query.lattitude || 0;
+    const sensorReadingLatitude = req.query.latitude || 0;
     const sensorReadingLongitude = req.query.longitude || 0;
-    const sensorReadingAltitude = req.query.altitude || 0;
+    const sensorReadingCourse = req.query.course || 0;
     const sensorReadingSpeed = req.query.speed || 0;
     const id = req.query.ID
     const data = {
-        lattitudeReading : sensorReadingLattitude,
+        lattitudeReading : sensorReadingLatitude,
         longitudeReading : sensorReadingLongitude,
-        altitudeReading : sensorReadingAltitude,
+        courseReading: sensorReadingCourse,
         speedReading : sensorReadingSpeed,
         SensorID : id,
         createdAt : new Date()
