@@ -22,6 +22,7 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseApp)
 const collectionName  = "LocationData"
+const collectionName2 = "LocationHistory"
 
 
 const setLocation = async(req,res) =>  {
@@ -44,8 +45,16 @@ const setLocation = async(req,res) =>  {
     }
 
     await setDoc(doc(firestore,collectionName,sensorId),data)
-
-
+    await setDoc(doc(firestore,collectionName2,dateString),data)
+    
+    addDataToCollection(database, "CollectionName3", data).then(
+      value => {res.send("Done");}
+  ).catch(
+      err => {
+          res.send("Error writing to DB, Please check the API log for more details");
+          console.log(err);
+      }
+  )
     res.send(JSON.stringify(data))
 
 }
