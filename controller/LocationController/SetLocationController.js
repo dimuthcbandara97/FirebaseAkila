@@ -44,7 +44,7 @@ const setLocation = async(req,res) =>  {
         "course": course
     }
 
-    await setDoc(doc(firestore,collectionName,sensorId),data)
+    await setDoc(doc(firestore,collectionName,sensorId+currentTime),data)
     // await setDoc(doc(firestore,collectionName2,dateString),data)
     
     addDataToCollection(firestore, "CollectionName3", data).then(
